@@ -25,7 +25,7 @@ int main() {
 	//get _PEB object
 	(GetProcessInformation)(h, ProcessBasicInformation, &ProcessInformation, sizeof(ProcessInformation), &lenght);
 
-	//replace commandline and imagepathname
+	//checking PEB.BeingDebugged
 	BYTE BeingDebugged = ProcessInformation.PebBaseAddress->BeingDebugged;
 	if (!BeingDebugged) {
 		MessageBox(NULL, L"Behave as u want ;)", L"Not Debugged", MB_OK);
